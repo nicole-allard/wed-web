@@ -1,0 +1,23 @@
+.header {
+	width:100%;
+	text-align: center;
+	background-color:#f1f1f1;
+	background:url('/images/red-background.png');
+	overflow:hidden;
+	margin:0;
+	padding:0;
+}
+
+.header img {
+	width:40%;
+}
+
+.header img.tree {
+	border-left:49700px solid #F1F1F1;
+	border-right:50000px solid #F1F1F1;
+}
+
+.header img.names {
+	border-left:50000px solid #F1F1F1;
+	border-right:50000px solid #F1F1F1;
+}
