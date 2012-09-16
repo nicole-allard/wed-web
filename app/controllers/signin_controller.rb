@@ -19,13 +19,20 @@ class SigninController < ApplicationController
   private
   
   def authorize(code)
-    usercode = UserCode.find_by_code(code)
-    puts "\n\n\t\tUSERCODE: #{usercode.inspect}"
+    usercodes = UserCode.find_all_by_code(code).sort_by(&:id)
     
-    if usercode
-      if !usercode.user
-        # First time logging in. Create user
-        user = User.create(:name => usercode.name)
+    if !usercodes.empty?
+      if !usercodes.first.user
+        # First time logging in. Create user(s)
+        user = nil
+        ActiveRecord::Base.transaction do
+          user = User.create(:name => usercodes.first.name)
+          if usercodes.length > 1
+            guest = User.create(:name => usercodes.last.name)
+            GuestAssoc.create(:user_id => user.id, :guest_id => guest.id)
+          end
+        end
+
         if (user && user.id)
           cookies[:user_id] = user.id
           @active_user = user
