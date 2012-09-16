@@ -1,7 +1,7 @@
 body {
 	font-family:Helvetica, Arial;
 	line-height:1.3;
-	background-color:#f1f1f1;
+	background-color:#fff;
 	font-size:14px;
 }
 
@@ -11,18 +11,18 @@ p {
 }
 
 .header {
+	background-color:#f1f1f1;
 	width:100%;
 	text-align: center;
 	overflow:hidden;
 	margin:0;
 	padding:0;
-	padding: 20px 0px;
 }
 
 .header .img-wrapper {
 	width:680px;
 	position:relative;
-	height:765px;
+	height:655px;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -40,6 +40,9 @@ p {
 	height:111px;
 }
 
+.navigation-hack {
+	width:100%;
+}
 
 .navigation {
 	width:100%;
@@ -84,10 +87,20 @@ p {
 .navigation li a:hover,
 .navigation li a {
 	text-shadow: 1px 1px #111;
-	color:#f9f9f9;
+	color:#fff;
 	text-decoration:none;
 }
 
 .navigation li:first-child {
 	border-left:1px solid #111;
+}
+
+
+.main-container {
+	width: 736px;
+	margin-left:auto;
+	margin-right:auto;
+	border:1px solid #999;
+	padding:20px;
+/*	background-color:#f1f1f1;*/
 }

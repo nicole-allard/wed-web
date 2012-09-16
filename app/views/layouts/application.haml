@@ -7,19 +7,20 @@
   %body
     .header
       .img-wrapper
-        %img.names{:src=>'/images/names.png'}
         %img.tree{:src=>'/images/tree.png'}
-  
-      .navigation
-        .wrapper
-          %ul
-            %li= link_to "Details", :controller => 'rsvp'
-            %li= link_to "Registry", :controller => 'rsvp'
-            %li= link_to "Lodging", :controller => 'rsvp'
-            %li= link_to "RSVP", :controller => 'rsvp'
-            %li= link_to "Plans", :controller => 'rsvp'
-            %li= link_to "Flights", :controller => 'rsvp'
-            %li= link_to "Map", :controller => 'rsvp'
+      
+      .navigation-hack
+        %img.names{:src=>'/images/names.png'}
+        .navigation
+          .wrapper
+            %ul
+              %li= link_to "Details", :controller => 'rsvp'
+              %li= link_to "Registry", :controller => 'rsvp'
+              %li= link_to "Lodging", :controller => 'rsvp'
+              %li= link_to "RSVP", :controller => 'rsvp'
+              %li= link_to "Plans", :controller => 'rsvp'
+              %li= link_to "Flights", :controller => 'rsvp'
+              %li= link_to "Map", :controller => 'rsvp'
       
     .main-container
       = yield
