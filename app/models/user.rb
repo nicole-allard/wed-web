@@ -8,10 +8,11 @@ class User < ActiveRecord::Base
   has_one :user_code
   
   validate :email_validation, :on => :update
+  validate :name, :presence => true, :if => :attending?
   
-  # Requires a valid email for any user updates past the initial create
+  # Requires a valid email for any attending user updates past the initial create
   def email_validation
-    if email.blank? || !(email =~ /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/)
+    if attending? && email.blank? || !(email =~ /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/)
       errors.add(:email, "A valid email is required.")
     end
   end

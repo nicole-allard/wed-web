@@ -1,11 +1,18 @@
 dan:
   code: dan
-  user_name: Dan
+  name: Dan
   
 nicole:
   code: struys
-  user_name: Nicole
+  name: Nicole
 
 ken:
   code: struys
-  user_name: Ken
+  name: Ken
+  
+kristina:
+  code: kris
+  name: Kristina
+  
+kris_guest:
+  code: kris
