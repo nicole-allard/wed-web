@@ -1,4 +1,6 @@
 WebWeb::Application.routes.draw do
+  get "lodging/index"
+
   # get "home/index"
 
   # The priority is based upon order of creation:

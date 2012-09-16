@@ -6,7 +6,7 @@
     = csrf_meta_tag
     %script{:src=>'https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'}
     %script{:src=>'http://maps.googleapis.com/maps/api/js?key=AIzaSyDapyZvURiD4vTi0iBm3yfeabbbYfRSml0&sensor=false'}
-    %script{:src=>'javascripts/main.js'}
+    %script{:src=>'/javascripts/main.js'}
   %body
     .header
       .img-wrapper
@@ -19,7 +19,7 @@
             %ul
               %li= link_to "Details", :controller => 'rsvp'
               %li= link_to "Registry", :controller => 'rsvp'
-              %li= link_to "Lodging", :controller => 'rsvp'
+              %li= link_to "Lodging", :controller => 'lodging'
               %li= link_to "RSVP", :controller => 'rsvp'
               %li= link_to "Plans", :controller => 'rsvp'
               %li= link_to "Flights", :controller => 'rsvp'
