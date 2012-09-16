@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   
   def authorize_user
     if cookies[:user_id] && (@active_user.nil? || @active_user.id != cookies[:user_id])
-      @active_user = User.find(cookies[:user_id])
+      @active_user = User.find(cookies[:user_id]) rescue nil
     end
     
     unless (@active_user)

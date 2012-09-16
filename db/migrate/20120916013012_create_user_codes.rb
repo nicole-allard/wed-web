@@ -1,7 +1,7 @@
 class CreateUserCodes < ActiveRecord::Migration
   def self.up
     create_table :user_codes do |t|
-      t.string      :name,        :null => false
+      t.string      :name,        :null => true
       t.string      :code,        :null => false
       t.integer     :user_id,     :null => true
       t.timestamps

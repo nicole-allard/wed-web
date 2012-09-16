@@ -1,3 +1,26 @@
-- guest_greeting = @active_user.guest ? " and #{@active_user.guest.name}" : ""
-%h1= "Hello #{@active_user.name}#{guest_greeting}"
-%h2= link_to "Home", :controller => "home"
+.rsvp
+  Please RSVP below. You may return and change this information later.
+  
+  =form_tag(:action => "update_rsvp", :method => "post") do
+    = label_tag("user_name", "Full Name")
+    = text_field_tag("user_name", @active_user.name)
+    = label_tag("user_email", "Email")
+    = text_field_tag("user_email", @active_user.email)
+    = radio_button_tag("user_attending", "true", @active_user.attending?)
+    = label_tag("user_attending_true", "Attending")
+    = radio_button_tag("user_attending", "false", !@active_user.attending?)
+    = label_tag("user_attending_false", "Not Attending")
+    
+    - if @active_user.guest
+      = "Guest (leave blank if you are not bringing a guest)" if !@active_user.guest.name
+      = label_tag("guest_name", "Full Name")
+      = text_field_tag("guest_name", @active_user.guest.name)
+      = label_tag("guest_email", "Email")
+      = text_field_tag("guest_email", @active_user.guest.email)
+      = radio_button_tag("guest_attending", "true", @active_user.guest.attending? && !@active_user.guest.name.blank?)
+      = label_tag("guest_attending_true", "Attending")
+      = radio_button_tag("guest_attending", "false", !@active_user.guest.attending? || @active_user.guest.name.blank?)
+      = label_tag("guest_attending_false", "Not Attending")
+      
+    = submit_tag("RSVP")
+    
