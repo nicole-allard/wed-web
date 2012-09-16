@@ -3,8 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string      :email,       :null => false
       t.string      :name,        :null => false
-      t.boolean     :attending,   :null => false,   :default => true
-      t.integer     :menu_id
+      t.boolean     :attending,   :default => true
       t.timestamps
     end
     
