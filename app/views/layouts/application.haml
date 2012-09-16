@@ -4,6 +4,9 @@
     %title Nicole and Ken
     = stylesheet_link_tag :all
     = csrf_meta_tag
+    %script{:src=>'https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'}
+    %script{:src=>'http://maps.googleapis.com/maps/api/js?key=AIzaSyDapyZvURiD4vTi0iBm3yfeabbbYfRSml0&sensor=false'}
+    %script{:src=>'javascripts/main.js'}
   %body
     .header
       .img-wrapper
@@ -20,18 +23,18 @@
               %li= link_to "RSVP", :controller => 'rsvp'
               %li= link_to "Plans", :controller => 'rsvp'
               %li= link_to "Flights", :controller => 'rsvp'
-              %li= link_to "Map", :controller => 'rsvp'
+              %li= link_to "Map", :controller => 'map'
       
     .main-container
-      - if flash && flash.has_key?(:notice_messages)
-        - flash[:notice_messages].each do |cls, msg|
-          %div{:class => cls}
-            = msg
-      = yield
+      .content-container
+        - if flash && flash.has_key?(:notice_messages)
+          - flash[:notice_messages].each do |cls, msg|
+            %div{:class => cls}
+              = msg
+        = yield
       
       
-    %script{:src=>'https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'}
-    %script{:src=>'javascripts/main.js'}
+    
 
          
      
