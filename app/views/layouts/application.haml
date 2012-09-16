@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title Nicole and Ken
+    = stylesheet_link_tag :all
+    = csrf_meta_tag
+  %body
+    .header
+      .img-wrapper
+        %img.names{:src=>'/images/names.png'}
+        %img.tree{:src=>'/images/tree.png'}
+  
+      .navigation
+        .wrapper
+          %ul
+            %li= link_to "Details", :controller => 'rsvp'
+            %li= link_to "Registry", :controller => 'rsvp'
+            %li= link_to "Lodging", :controller => 'rsvp'
+            %li= link_to "RSVP", :controller => 'rsvp'
+            %li= link_to "Plans", :controller => 'rsvp'
+            %li= link_to "Flights", :controller => 'rsvp'
+            %li= link_to "Map", :controller => 'rsvp'
+      
+    .main-container
+      = yield
+      
+      
+    %script{:src=>'https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'}
+    %script{:src=>'javascripts/main.js'}
+
+         
+     
