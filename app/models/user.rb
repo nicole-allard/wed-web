@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_one :inverse_guest_user, :through => :inverse_guest_assoc, :source => :user
   
   has_one :menu
+  has_one :user_code
   
   def guest
     guest_user || inverse_guest_user
