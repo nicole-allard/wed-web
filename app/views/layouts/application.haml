@@ -22,6 +22,10 @@
             %li= link_to "Map", :controller => 'rsvp'
       
     .main-container
+      - if flash && flash.has_key?(:notice_messages)
+        - flash[:notice_messages].each do |cls, msg|
+          %div{:class => cls}
+            = msg
       = yield
       
       
