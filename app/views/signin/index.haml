@@ -1,0 +1,4 @@
+.login
+  = form_tag(:controller => "signin", :action => "login", :method => "post") do
+    = label_tag("code", "Please enter your user code exactly as printed on your invitation:")
+    = text_field_tag("code")
