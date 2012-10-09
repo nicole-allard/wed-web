@@ -11,15 +11,6 @@ p {
 	margin-bottom:10px;
 }
 
-h1 {
-	font-size: 22px;
-	font-weight:bold;
-	margin-bottom:10px;
-	color:#0042ff;
-	width:100%;
-	border-bottom:1px solid #ccc;
-	padding:10px;
-}
 
 .header {
 	background-color:#f1f1f1;
@@ -125,18 +116,59 @@ h1 {
 }
 
 .content-container {
-	border: 1px solid #999;
-	margin-top:10px;
-	border-radius:5px;
-	background-color:white;
-	overflow:hidden;
-	box-shadow: 0 0 1px 1px #ccc;
+	
 }
 
-.content-container .page-content {
-	margin:10px;
+.module {
+	margin-top:10px;
+	box-shadow: 0 0 1px 1px #ccc;
+	border-radius:5px;
+	border: 1px solid #999;
+}
+
+.module h1,
+.module h2 {
+	background-color:white;
+	box-shadow: 0 0 1px 1px #ccc;
+	display:block;
+	border-radius:5px 5px 0px 0px;
+	font-weight:bold;
+	color:#333;
+	border-bottom:1px solid #999;
+	background: -webkit-gradient(linear, left bottom, left top, from(#ccc), to(#f1f1f1));
+	box-shadow: inset 0px 1px 0px 0px white;
+}
+
+.module h1 {
+	font-size: 22px;
+	padding:10px;
+}
+
+.module h2 {
+	font-size: 18px;
+	padding:6px 10px;
+}
+
+.module .content {
+	padding: 0px 20px 10px 20px;
+	background-color:#fff;
 	overflow:hidden;
-/*	background-color:#fff;*/
+	border-radius:0px 0px 5px 5px;
+}
+
+.module .content .alpha,
+.module .content .beta {
+	padding:5px;
+}
+
+.module .content .alpha {
+	width:480px;
+	float:left;
+}
+
+.module .content .beta {
+	width:235px;
+	float:left;
 }
 
 form {

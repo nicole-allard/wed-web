@@ -8,10 +8,6 @@ $(function() {
    		
 	var headerHeight = $('.header').height();
 	
-	// $('.main-container').css({
-		// 'margin-top': headerHeight
-	// });
-	
 	$window.on('scroll', function() {
    		
    		var scrollTop = $(this).scrollTop();
