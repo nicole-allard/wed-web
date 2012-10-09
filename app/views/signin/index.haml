@@ -1,9 +1,13 @@
-.login
-  .h4 You need to enter a code to view the site
-  = form_tag(:controller => "signin", :action => "login", :method => "post") do
-    %label 
-      %span 
-        Code
-        %span{:class=>'fine-print'} 
-          (please enter exactly as printed on your invitation)
-      = text_field_tag("code")
+
+.module
+  %h1 Register
+  .content
+    .login
+      .h4 You need to enter a code to view the site
+      = form_tag(:controller => "signin", :action => "login", :method => "post") do
+        %label 
+          %span 
+            Code
+          %span{:class=>'fine-print'} 
+            (please enter exactly as printed on your invitation)
+          = text_field_tag("code")
