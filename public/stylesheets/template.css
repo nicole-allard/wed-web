@@ -138,3 +138,64 @@ h1 {
 	overflow:hidden;
 /*	background-color:#fff;*/
 }
+
+form {
+  display:block;
+  width:300px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:15px;
+}
+
+
+form label .fine-print {
+  color:#999;
+  font-weight:normal;
+  font-size:12px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form fieldset label {
+  font-weight: normal;
+}
+
+form label fieldset .fieldset-header {
+  font-weight:bold;
+}
+
+form input[type=text] {
+  width:250px;
+  padding:4px;
+  line-height:20px;
+  border-radius:3px;
+  border:1px solid #999;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.login form input {
+  display:block;
+}
+
+
+.rsvp form label {
+  display:block;
+  margin-top:5px;
+}
+
+.rsvp form input[type=text] {
+  display:block;
+}
+
+.rsvp form fieldset {
+  margin:10px 0px;
+  font-weight:bold;
+}
+
+.rsvp form fieldset label {
+  float:left;
+  margin-right:15px;
+}
