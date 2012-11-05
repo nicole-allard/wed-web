@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20120916013012) do
   end
 
   create_table "user_codes", :force => true do |t|
-    t.string   "name"
+    t.string   "name",       :null => false
     t.string   "code",       :null => false
     t.integer  "user_id"
     t.datetime "created_at"

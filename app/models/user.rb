@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   
   # Requires a valid email for any attending user updates past the initial create
   def email_validation
-    if status == User.attending_status[:attending] && email.blank? || !(email =~ /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/)
+    if status == User.attending_status[:attending] && (email.blank? || !(email =~ /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/))
       errors.add(:email, "A valid email is required for all attendees.")
     end
   end
