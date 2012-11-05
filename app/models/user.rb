@@ -8,16 +8,29 @@ class User < ActiveRecord::Base
   has_one :user_code
   
   validate :email_validation, :on => :update
-  validate :name, :presence => true, :if => :attending?
+  validate :name_validation, :on => :update
+  
+  
   
   # Requires a valid email for any attending user updates past the initial create
   def email_validation
-    if attending? && email.blank? || !(email =~ /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/)
-      errors.add(:email, "A valid email is required.")
+    if status == User.attending_status[:attending] && email.blank? || !(email =~ /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/)
+      errors.add(:email, "A valid email is required for all attendees.")
+    end
+  end
+  
+  # Requires a non-empty name for any attending user updates past the initial create
+  def name_validation
+    if status == User.attending_status[:attending] && name.strip.blank?
+      errors.add(:name, "A name is required for all attendees.")
     end
   end
   
   def guest
     guest_user || inverse_guest_user
+  end
+  
+  def self.attending_status
+    {:attending => 1, :not_attending => 2, :maybe_attending => 3}
   end
 end

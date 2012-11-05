@@ -2,14 +2,15 @@ dan:
   code: dan
   name: Dan
   
+ken:
+  code: ken
+  name: Ken
+
+  
 nicole:
-  code: struys
+  code: ken
   name: Nicole
 
-ken:
-  code: struys
-  name: Ken
-  
 kristina:
   code: kris
   name: Kristina

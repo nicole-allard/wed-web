@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20120916013012) do
   end
 
   create_table "user_codes", :force => true do |t|
-    t.string   "name",       :null => false
+    t.string   "name"
     t.string   "code",       :null => false
     t.integer  "user_id"
     t.datetime "created_at"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(:version => 20120916013012) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "name",                         :null => false
-    t.boolean  "attending",  :default => true
+    t.string   "name",                                   :null => false
+    t.integer  "status",     :limit => 1, :default => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
