@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  before_filter :check_cookie
+  
   def authorize_user
     if cookies[:user_id] && (@active_user.nil? || @active_user.id != cookies[:user_id])
       @active_user = User.find(cookies[:user_id]) rescue nil
@@ -45,5 +47,12 @@ class ApplicationController < ActionController::Base
 
   def set_error_message(message_text)
     set_message message_text, "header_notice_error"
+  end
+  
+  def check_cookie
+    if cookies[:first_visit].blank?
+      @first_visit = true
+      cookies[:first_visit] = {:value => Time.now, :expires => 10.days.from_now}
+    end
   end
 end
