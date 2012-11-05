@@ -4,7 +4,10 @@
     .rsvp
       - if @errors
         .error
-          = @errors.join("<br/>")
+          %ol
+            - @errors.each do |err|
+              %li
+                = err
       - elsif @success
         .success
           =@success
