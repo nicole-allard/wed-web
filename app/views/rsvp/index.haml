@@ -5,48 +5,50 @@
       Please RSVP below.
   
       =form_tag(:action=>"update_rsvp", :method=>"post") do
-        %label
-          Full Name
-          %input{:type=>'text', :name=>"user_name", :value=>@active_user.name}
-  
-        %label
-          Email
-          %input{:type=>'text', :name=>"user_email", :value=>@active_user.email}
-    
-        %fieldset
-          .fieldset-header 
-            Attending
-          %label
-            %input{:type=>'radio', :name=>'status', :value=>User.attending_status[:attending], :checked=>(@active_user.status == User.attending_status[:attending] ? :checked : nil)}
-            Yes
-          %label
-            %input{:type=>'radio', :name=>'status', :value=>User.attending_status[:not_attending], :checked=>(@active_user.status == User.attending_status[:not_attending] ? :checked : nil)}
-            No
-          %label
-            %input{:type=>'radio', :name=>'status', :value=>User.attending_status[:maybe_attending], :checked=>(@active_user.status == User.attending_status[:maybe_attending] ? :checked : nil)}
-            Maybe
-
-        - if @active_user.guest
-          = "Guest (leave blank if you are not bringing a guest)" if !@active_user.guest.name
+        .user-rsvp
           %label
             Full Name
-            %input{:type=>'text', :name=>"guest_name", :value=>@active_user.guest.name}
-
+            %input{:type=>'text', :name=>"user_name", :value=>@active_user.name}
+  
           %label
             Email
-            %input{:type=>'text', :name=>"guest_email", :value=>@active_user.guest.email}
-
+            %input{:type=>'text', :name=>"user_email", :value=>@active_user.email}
+    
           %fieldset
             .fieldset-header 
               Attending
             %label
-              %input{:type=>'radio', :name=>'guest_status', :value=>User.attending_status[:attending], :checked=>(@active_user.status == User.attending_status[:attending] ? :checked : nil)}
+              %input{:type=>'radio', :name=>'status', :value=>User.attending_status[:attending], :checked=>(@active_user.status == User.attending_status[:attending] ? :checked : nil)}
               Yes
             %label
-              %input{:type=>'radio', :name=>'guest_status', :value=>User.attending_status[:not_attending], :checked=>(@active_user.status == User.attending_status[:not_attending] ? :checked : nil)}
+              %input{:type=>'radio', :name=>'status', :value=>User.attending_status[:not_attending], :checked=>(@active_user.status == User.attending_status[:not_attending] ? :checked : nil)}
               No
             %label
-              %input{:type=>'radio', :name=>'guest_status', :value=>User.attending_status[:maybe_attending], :checked=>(@active_user.status == User.attending_status[:maybe_attending] ? :checked : nil)}
+              %input{:type=>'radio', :name=>'status', :value=>User.attending_status[:maybe_attending], :checked=>(@active_user.status == User.attending_status[:maybe_attending] ? :checked : nil)}
               Maybe
+
+        - if @active_user.guest
+          .user-rsvp
+            = "Guest (leave blank if you are not bringing a guest)" if !@active_user.guest.name
+            %label
+              Full Name
+              %input{:type=>'text', :name=>"guest_name", :value=>@active_user.guest.name}
+
+            %label
+              Email
+              %input{:type=>'text', :name=>"guest_email", :value=>@active_user.guest.email}
+
+            %fieldset
+              .fieldset-header 
+                Attending
+              %label
+                %input{:type=>'radio', :name=>'guest_status', :value=>User.attending_status[:attending], :checked=>(@active_user.status == User.attending_status[:attending] ? :checked : nil)}
+                Yes
+              %label
+                %input{:type=>'radio', :name=>'guest_status', :value=>User.attending_status[:not_attending], :checked=>(@active_user.status == User.attending_status[:not_attending] ? :checked : nil)}
+                No
+              %label
+                %input{:type=>'radio', :name=>'guest_status', :value=>User.attending_status[:maybe_attending], :checked=>(@active_user.status == User.attending_status[:maybe_attending] ? :checked : nil)}
+                Maybe
               
         = submit_tag("RSVP")
