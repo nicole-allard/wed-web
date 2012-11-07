@@ -1,0 +1,26 @@
+form.attendees {
+	width:auto;
+}
+
+form.attendees .user-rsvp {
+	float:left;
+	padding:0px 35px;
+}
+
+form.attendees input[type=submit] {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:20px;
+	margin-left:300px;
+}
+
+form.guest {
+	width:285px;
+}
+
+form.guest .guest-header {
+	margin-top: 40px;
+	font-size:16px;
+	font-weight:bold;
+	border-bottom:1px solid #ccc;
+}
