@@ -3,3 +3,18 @@
 	height:500px;
 	float:right;
 }
+
+.legend li {
+	display:block;
+	padding:10px;
+}
+
+.legend li span,
+.legend li img {
+	float:left;
+	display:block;
+}
+
+.legend li span {
+	padding-top:7px;
+}
