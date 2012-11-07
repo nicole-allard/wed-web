@@ -1,6 +1,10 @@
 
 
 $(function() {
+	if($('body').hasClass('visited')) {
+		return;
+	}
+	
 	var $window = $(window);
 	var FADE_AFTER_SCROLL_TOP = 400;
 	var FIXED_POSITION_AFTER_SCROLL_TOP = 660;
@@ -19,16 +23,15 @@ $(function() {
 			opacity : 1 - relativeScrollTop/100
 		});
 		
-		
-		
 		if (scrollTop > FADE_AFTER_SCROLL_TOP) {
-			$('.navigation-hack').css('background-color', '#F1F1F1');
+			$('.navigation-hack').css('background-color', '#white');
 		} else {
 			$('.navigation-hack').css('background-color', '');	
 		}
 		
 			
 		if(scrollTop > FIXED_POSITION_AFTER_SCROLL_TOP) {
+			console.log('going fixed');
 			$('.navigation-hack').css({
 				position: 'fixed',
 				top:0,
@@ -37,6 +40,7 @@ $(function() {
 			var height = $('.navigation-hack').height();
 			$('.main-container').css('margin-top', height);
 		} else {
+			console.log('restoring');
 			$('.navigation-hack').css({
 				position: '',
 				top:'',

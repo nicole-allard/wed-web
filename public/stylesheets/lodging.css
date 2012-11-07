@@ -3,3 +3,9 @@
 	border:1px solid #ccc;
 	padding:3px;
 }
+
+a.button {
+	display:block;
+	float:left;
+	margin-top:10px;
+}

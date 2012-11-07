@@ -1,7 +1,7 @@
 body {
 	font-family:Helvetica, Arial;
 	line-height:1.3;
-	background-color:#efefef;
+	background-color:white;
 	font-size:14px;
 	color:#333;
 }
@@ -13,7 +13,7 @@ p {
 
 
 .header {
-	background-color:#f1f1f1;
+	background-color:white;
 	width:100%;
 	text-align: center;
 	overflow:hidden;
@@ -29,9 +29,17 @@ p {
 	margin-right:auto;
 }
 
+.visited .header .img-wrapper {
+	display:none;
+}
+
 .header .img-wrapper img.tree {
 	width:680px;
 	height:741px;
+}
+
+.visited .header .img-wrapper img.tree {
+	display:none;
 }
 
 .header .img-wrapper img.names {
@@ -51,7 +59,7 @@ p {
 .navigation {
 	width:100%;
 	overflow:hidden;
-	background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#333));
+	background: -webkit-gradient(linear, left top, left bottom, from(#777), to(#444));
 	box-shadow: inset 0px 1px 0px 0px #666;
 	border-top:1px solid #111;
 	border-bottom:1px solid #111;
@@ -73,6 +81,7 @@ p {
 
 .navigation li {
 /*	box-shadow: inset 1px 0px 0px 0px #666;*/
+	float:left;
 }
 
 .navigation li:active {
@@ -80,14 +89,16 @@ p {
 }
 
 .navigation li a {
-	padding:10px;
+	padding:5px 68px;
 	display:block;
-	float:left;
 	border-right:1px solid #111;
-	width:90px;
 	text-align:center;
 	cursor:pointer;
 	text-shadow: 2px 2px #111;
+}
+
+.navigation li a:last-child {
+	padding-right:69px;
 }
 
 .navigation li:first-child a {
@@ -113,6 +124,7 @@ p {
 	margin-right:auto;
 	margin-bottom:10px;
 	padding-bottom:20px;
+	min-height:700px;
 }
 
 .content-container {
@@ -121,35 +133,38 @@ p {
 
 .module {
 	margin-top:10px;
-	box-shadow: 0 0 1px 1px #ccc;
+	box-shadow: 0 0 1px 1px #efefef;
 	border-radius:5px;
 	border: 1px solid #999;
 }
 
 .module h1,
 .module h2 {
+	color: #cb1f1f;
 	background-color:white;
 	box-shadow: 0 0 1px 1px #ccc;
 	display:block;
 	border-radius:5px 5px 0px 0px;
 	font-weight:bold;
-	color:#333;
-	border-bottom:1px solid #999;
-	background: -webkit-gradient(linear, left bottom, left top, from(#ccc), to(#f1f1f1));
+/*	color:#333;*/
+/*	background: -webkit-gradient(linear, left bottom, left top, from(#ccc), to(#f1f1f1));*/
 	box-shadow: inset 0px 1px 0px 0px white;
 }
 
 .module h1 {
 	font-size: 22px;
-	padding:10px;
+	padding:10px 10px 0px 10px;
+	margin-bottom:10px;
+	border-bottom:1px solid #ccc;
 }
 
 .module h2 {
 	font-size: 18px;
-	padding:6px 10px;
+	color:#333;
+	border-bottom:1px solid #ddd;
 }
 
-.module .content {
+.module > .content {
 	padding: 0px 20px 10px 20px;
 	background-color:#fff;
 	overflow:hidden;
@@ -230,4 +245,49 @@ form input[type=text] {
 .rsvp form fieldset label {
   float:left;
   margin-right:15px;
+}
+
+.error,
+.success {
+	padding:7px;
+	border-radius:3px;
+}
+
+.success {
+	border: 1px solid #408c12;
+	background-color: #63d51e;
+	background: -webkit-gradient(linear, left top, left bottom, from(#53ad1c), to(#63d51e));
+	box-shadow: inset 0px 1px 0px 0px #63d51e;
+}
+
+.error {
+	color:#fff;
+	text-shadow:1px 1px #111;
+	background-color: #cb1f1f;
+	background: -webkit-gradient(linear, left top, left bottom, from(#c21b1b), to(#cb1f1f));
+	border:1px solid #b01818;
+	box-shadow: inset 0px 1px 0px 0px #cb1f1f;
+}
+
+
+button,
+input[type="submit"], 
+a.button {
+	padding:5px 12px;
+	background-color: #cb1f1f;
+	background: -webkit-gradient(linear, left top, left bottom, from(#c21b1b), to(#cb1f1f));
+	border:1px solid #b01818;
+	color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.3);
+}
+
+a.button {
+	text-decoration:none;
+}
+
+button:hover,
+input[type="submit"]:hover {
+	background: -webkit-gradient(linear, left bottom, left top, from(#c21b1b), to(#cb1f1f));
+	
 }
