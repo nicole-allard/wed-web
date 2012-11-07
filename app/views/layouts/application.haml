@@ -25,7 +25,10 @@
     .main-container
       .content-container
         - if flash && flash.has_key?(:notice_messages)
-          - flash[:notice_messages].each do |cls, msg|
+          - flash[:notice_messages].each do |cls, msgs|
             %div{:class => cls}
-              = msg
+              %ol
+                - msgs.each do |msg|
+                  %li
+                    = msg
         = yield

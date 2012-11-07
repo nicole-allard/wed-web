@@ -1,9 +1,6 @@
 class RsvpController < ApplicationController
   before_filter :authorize_user, :except => :cache
   
-  def index
-  end
-
   def update_rsvp
     @active_user.update_attributes({:email => params["user_email"], :name => params["user_name"], :status => params["user_status"]})
     user_errors = @active_user.errors
@@ -15,9 +12,9 @@ class RsvpController < ApplicationController
     end
     
     if !user_errors.blank? || !guest_errors.blank?
-      @errors = user_errors.values + guest_errors.values
+      set_error_message user_errors.values + guest_errors.values
     else
-      @success = "Successfully updated attendee information"
+      set_success_message "Successfully updated attendee information"
     end
     
     render "index"

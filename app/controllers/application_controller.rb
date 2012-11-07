@@ -38,15 +38,22 @@ class ApplicationController < ActionController::Base
     sanitize_params_rec(params)
   end
   
-  def set_message(message_text, message_class)
-    if flash.now[:notice_messages] == nil
-      flash.now[:notice_messages] = []
+  def set_message(messages, message_class)
+    flash.now[:notice_messages] ||= {}
+    flash.now[:notice_messages][message_class] ||= []
+    
+    messages = [messages] if messages.is_a? String
+    messages.each do |msg|
+      flash.now[:notice_messages][message_class] << msg
     end
-    flash.now[:notice_messages] << [message_class, message_text]
+  end
+  
+  def set_success_message(messages)
+    set_message messages, "success"
   end
 
-  def set_error_message(message_text)
-    set_message message_text, "header_notice_error"
+  def set_error_message(messages)
+    set_message messages, "error"
   end
   
   def check_cookie

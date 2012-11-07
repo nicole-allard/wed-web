@@ -2,7 +2,7 @@ class SigninController < ApplicationController
   before_filter :sanitize_params
 
   skip_before_filter :authorize_user
-
+  
   def login
     return redirect_to(:action => 'index') unless params[:code]
     code = params[:code] ? CGI::unescape(params[:code]) : ''
