@@ -2,18 +2,8 @@
   %h1 Register
   .content
     .rsvp
-      - if @errors
-        .error
-          %ol
-            - @errors.each do |err|
-              %li
-                = err
-      - elsif @success
-        .success
-          =@success
-      - else
-        .info
-          Please RSVP below.
+      .info
+        Please RSVP below.
   
       =form_tag(:action=>"update_rsvp", :method=>"post") do
         .user-rsvp
