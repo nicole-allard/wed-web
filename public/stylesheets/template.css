@@ -312,3 +312,11 @@ input[type="submit"]:hover {
 	background: -webkit-gradient(linear, left bottom, left top, from(#c21b1b), to(#cb1f1f));
 	
 }
+
+i {
+  font-style: italic;
+}
+
+b {
+  font-weight: bold;
+}
