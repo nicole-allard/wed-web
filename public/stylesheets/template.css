@@ -216,7 +216,7 @@ form {
 }
 
 
-form label .fine-print {
+.fine-print {
   color:#999;
   font-weight:normal;
   font-size:12px;
