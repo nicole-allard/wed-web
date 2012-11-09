@@ -1,7 +1,7 @@
 class UserCode < ActiveRecord::Base
   belongs_to :user
   
-  validate :validate_codes_create, :on => :create
+  validate :validate_codes, :on => :create
   before_update :prevent_update
   
   def validate_codes

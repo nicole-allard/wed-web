@@ -15,6 +15,7 @@ group :development do
 end
 
 gem "haml"
+# gem 'thin'
 
 # Use unicorn as the web server
 # gem 'unicorn'
