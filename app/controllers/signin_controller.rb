@@ -43,10 +43,14 @@ class SigninController < ApplicationController
         else
           false
         end
+      else
+        @active_user = usercodes.first.user
+        cookies[:user_id] = @active_user.id
       end
     else
       false
     end
+    @active_user
   end
 
   def login_redirect
