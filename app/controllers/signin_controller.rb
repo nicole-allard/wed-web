@@ -26,11 +26,14 @@ class SigninController < ApplicationController
         user = nil
         ActiveRecord::Base.transaction do
           user = User.create(:name => usercodes.first.name)
+          usercodes.first.user_id = user.id
           if usercodes.length > 1
             guest = User.create(:name => usercodes.last.name)
+            usercodes.last.user_id = guest.id
             GuestAssoc.create(:user_id => user.id, :guest_id => guest.id)
           end
         end
+        
 
         if (user && user.id)
           cookies[:user_id] = user.id
