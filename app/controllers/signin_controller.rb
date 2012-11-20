@@ -27,9 +27,11 @@ class SigninController < ApplicationController
         ActiveRecord::Base.transaction do
           user = User.create(:name => usercodes.first.name)
           usercodes.first.user_id = user.id
+          usercodes.first.save!
           if usercodes.length > 1
             guest = User.create(:name => usercodes.last.name)
             usercodes.last.user_id = guest.id
+            usercodes.last.save!
             GuestAssoc.create(:user_id => user.id, :guest_id => guest.id)
           end
         end
