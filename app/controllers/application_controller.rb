@@ -42,8 +42,8 @@ class ApplicationController < ActionController::Base
     flash.now[:notice_messages] ||= {}
     flash.now[:notice_messages][message_class] ||= []
     
-    messages = [messages] if !messages.is_a? Array
-    messages.each do |msg|
+    messages = [messages] if messages.is_a? String
+    messages.flatten.uniq.each do |msg|
       flash.now[:notice_messages][message_class] << msg
     end
   end

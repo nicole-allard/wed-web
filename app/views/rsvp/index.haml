@@ -5,7 +5,7 @@
       .info
         Please RSVP below.
   
-      =form_tag({:action=>"update_rsvp", :method=>"post"}, {:class=> @active_user.guest ? @active_user.guest.name.blank? ? "guest" : "attendees" : "individual"}) do
+      =form_tag({:action=>"update_rsvp", :method=>"post"}, {:class=> @active_user.guest ? @active_user.guest.user_code.name.blank? ? "guest" : "attendees" : "individual"}) do
         .user-rsvp
           %label
             Full Name
@@ -30,7 +30,7 @@
 
         - if @active_user.guest
           .user-rsvp
-            - if @active_user.guest.name.blank?
+            - if @active_user.guest.user_code.name.blank?
               .guest-header
                 Guest
                 %span.fine-print
