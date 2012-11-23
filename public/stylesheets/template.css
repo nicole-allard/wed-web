@@ -50,18 +50,18 @@ p {
 	margin-right:auto;
 }
 
-.visited .header .img-wrapper {
+/*.visited .header .img-wrapper {
 	display:none;
-}
+}*/
 
 .header .img-wrapper img.tree {
 	width:680px;
 	height:741px;
 }
 
-.visited .header .img-wrapper img.tree {
+/*.visited .header .img-wrapper img.tree {
 	display:none;
-}
+}*/
 
 .header .img-wrapper img.names {
 	position:absolute;
@@ -75,12 +75,14 @@ p {
 	width:100%;
 	/*Google Maps set z-index, so we need this*/
 	z-index:10000000;
+	background-color: #fff;
 }
 
 .navigation {
 	width:100%;
 	overflow:hidden;
 	background: -webkit-gradient(linear, left top, left bottom, from(#777), to(#444));
+	background: #444;
 	box-shadow: inset 0px 1px 0px 0px #666;
 	border-top:1px solid #111;
 	border-bottom:1px solid #111;
@@ -88,7 +90,7 @@ p {
 
 .navigation .wrapper {
 	display: block;
-	width: 778px;
+	width: 776px;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -140,12 +142,12 @@ p {
 }
 
 .main-container {
-	width: 778px;
+	width: 776px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:10px;
 	padding-bottom:20px;
-	min-height:700px;
+	min-height:672px;
 }
 
 .content-container {
@@ -198,7 +200,7 @@ p {
 }
 
 .module .content .alpha {
-	width:480px;
+	width:478px;
 	float:left;
 }
 
@@ -272,6 +274,7 @@ form input[type=text] {
 .success {
 	padding:7px;
 	border-radius:3px;
+	margin-top:10px;
 }
 
 .success {
