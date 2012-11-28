@@ -10,10 +10,10 @@
   %body{:class => @first_visit ? nil : "visited"}
     .header
       .img-wrapper
-        %img.tree{:src=>'/images/tree.png'}
+        = image_tag '/images/tree.png', {:class => 'tree'}
       
       .navigation-hack
-        %img.names{:src=>'/images/names.png'}
+        = image_tag '/images/names.png', {:class => 'names'}
         .navigation
           .wrapper
             %ul
