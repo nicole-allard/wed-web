@@ -10,7 +10,7 @@
   %body{:class => @first_visit ? nil : "visited"}
     .header
       .img-wrapper
-        = image_tag '/images/tree.png', {:class => 'tree'}
+        = image_tag '/images/tree.png', {:class => 'tree', :cache => true}
       
       .navigation-hack
         = image_tag '/images/names.png', {:class => 'names'}
