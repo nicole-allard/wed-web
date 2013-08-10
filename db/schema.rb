@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916013012) do
+ActiveRecord::Schema.define(:version => 20130810031110) do
 
   create_table "guest_assocs", :force => true do |t|
     t.integer "user_id"
@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(:version => 20120916013012) do
   end
 
   create_table "menu_items", :force => true do |t|
-    t.string "title",       :null => false
-    t.string "description", :null => false
+    t.string  "title",       :null => false
+    t.string  "description", :null => false
+    t.integer "course",      :null => false
   end
 
   create_table "menus", :force => true do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120916013012) do
     t.integer  "user_id",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "dessert_id", :null => false
   end
 
   create_table "user_codes", :force => true do |t|
