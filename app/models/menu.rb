@@ -6,10 +6,10 @@ class Menu < ActiveRecord::Base
   validate :course_validation
   
   def course_validation
-    if entree.course != MenuItem.courses[:entree]
+    if (MenuItem.find(entree_id).course != MenuItem.courses[:entree] rescue true)
       errors.add(:entree, "The entree must be one of the valid entrees: #{MenuItem.find_all_by_course(MenuItem.courses[:entree]).map(&:title).join(', ')}")
     end
-    if dessert.course != MenuItem.courses[:dessert]
+    if (MenuItem.find(dessert_id).course != MenuItem.courses[:dessert] rescue true)
       errors.add(:dessert, "The dessert must be one of the valid desserts: #{MenuItem.find_all_by_course(MenuItem.courses[:dessert]).map(&:title).join(', ')}")
     end
   end

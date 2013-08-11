@@ -24,7 +24,7 @@
       
     .main-container
       .content-container
-        - if flash && flash.include?(:notice_messages)
+        - if flash && flash[:notice_messages]
           - flash[:notice_messages].each do |cls, msgs|
             %div{:class => cls}
               %ol

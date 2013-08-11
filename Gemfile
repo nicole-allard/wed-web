@@ -12,6 +12,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'ruby-debug'
 end
 
 gem "haml", "3.1.4"
