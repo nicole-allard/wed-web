@@ -14,7 +14,7 @@ group :development do
   gem 'sqlite3'
 end
 
-gem "haml"
+gem "haml", "3.1.4"
 gem 'thin'
 
 # Use unicorn as the web server
