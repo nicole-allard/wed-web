@@ -19,6 +19,6 @@ class UserCode < ActiveRecord::Base
     # Too difficult to verify that after this code is updated that there will be only
     # two users with this code, based on if this is a create, an update of code, or
     # an update of another attr.
-    errors.add_to_base("Cannot update user codes. Please delete and recreate instead.")
+    errors[:base] << "Cannot update user codes. Please delete and recreate instead."
   end
 end
