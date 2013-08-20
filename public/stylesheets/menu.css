@@ -1,0 +1,45 @@
+.menu {
+	float:left;
+	width:100%;	
+}
+
+.menu form {
+	width: 700px;
+}
+
+.menu .user {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.menu fieldset {
+	padding: 10px 0;
+}
+
+.menu fieldset .fieldset-header {
+	font-weight: bold;
+	font-size: 16px;	
+}
+
+.menu fieldset label {
+	padding: 10px 0;
+	display: block;
+}
+
+.menu fieldset .item-wrap {
+	margin-left: 20px;
+}
+
+.menu fieldset label input {
+	display: block;
+	float: left;
+}
+
+.menu fieldset label .title {
+	font-weight: bold;
+}
+
+.menu fieldset label .description {
+	display: block;
+	width: 500px;
+}

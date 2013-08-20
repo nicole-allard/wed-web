@@ -3,11 +3,12 @@
   .content
     .menu
       .info
-        Please choose your entree and dessert below:
+        %p
+          Please choose your entree and dessert
   
       / Ken class options for form: "attendees" vs "individual", for 2 guests vs 1
       =form_tag({:action=>"update_menu", :method=>"post"}, {:class=> @active_user.guest ? "attendees" : "individual"}) do
-        %h3
+        %h2.user
           = @active_user.name
           
         %fieldset
@@ -16,10 +17,11 @@
           - MenuItem.find_all_by_course(MenuItem.courses[:entree]).each do |item|
             %label
               %input{:type=>'radio', :name=>'user_entree', :value=>item.id, :checked=>(@active_user.menu && @active_user.menu.entree_id == item.id ? :checked : nil)}
-              .title
-                = item.title
-              .description
-                = item.description
+              .item-wrap    
+                .title
+                  = item.title
+                .description
+                  = item.description
                 
         %fieldset
           .fieldset-header
@@ -27,14 +29,15 @@
           - MenuItem.find_all_by_course(MenuItem.courses[:dessert]).each do |item|
             %label
               %input{:type=>'radio', :name=>'user_dessert', :value=>item.id, :checked=>(@active_user.menu && @active_user.menu.dessert_id == item.id ? :checked : nil)}
-              .title
-                = item.title
-              .description
-                = item.description
+              .item-wrap    
+                .title
+                  = item.title
+                .description
+                  = item.description
         
 
         - if @active_user.guest
-          %h3
+          %h2.user
             = @active_user.guest.name
 
           %fieldset
@@ -43,10 +46,11 @@
             - MenuItem.find_all_by_course(MenuItem.courses[:entree]).each do |item|
               %label
                 %input{:type=>'radio', :name=>'guest_entree', :value=>item.id, :checked=>(@active_user.guest.menu && @active_user.guest.menu.entree_id == item.id ? :checked : nil)}
-                .title
-                  = item.title
-                .description
-                  = item.description
+                .item-wrap    
+                  .title
+                    = item.title
+                  .description
+                    = item.description
 
           %fieldset
             .fieldset-header
@@ -54,10 +58,10 @@
             - MenuItem.find_all_by_course(MenuItem.courses[:dessert]).each do |item|
               %label
                 %input{:type=>'radio', :name=>'guest_dessert', :value=>item.id, :checked=>(@active_user.guest.menu && @active_user.guest.menu.dessert_id == item.id ? :checked : nil)}
-                .title
-                  = item.title
-                .description
-                  = item.description
-              
+                .item-wrap    
+                  .title
+                    = item.title
+                  .description
+                    = item.description              
 
         = submit_tag("Save")

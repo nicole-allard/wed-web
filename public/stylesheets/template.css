@@ -112,7 +112,8 @@ p {
 }
 
 .navigation li a {
-	padding:5px 68px;
+	padding:5px 0;
+	width: 130px;
 	display:block;
 	border-right:1px solid #111;
 	text-align:center;
@@ -121,7 +122,7 @@ p {
 }
 
 .navigation li a:last-child {
-	padding-right:69px;
+	width: 154px;
 }
 
 .navigation li:first-child a {
