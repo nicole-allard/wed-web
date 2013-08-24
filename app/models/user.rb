@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_one :menu
   has_one :user_code
   
+  has_many :registry_reservations
+  
   validate :email_validation, :on => :update
   validate :name_validation, :on => :update
   

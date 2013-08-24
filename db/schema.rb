@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130810031110) do
+ActiveRecord::Schema.define(:version => 20130824223642) do
 
   create_table "guest_assocs", :force => true do |t|
     t.integer "user_id"
@@ -30,6 +30,21 @@ ActiveRecord::Schema.define(:version => 20130810031110) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "dessert_id", :null => false
+  end
+
+  create_table "registry_items", :force => true do |t|
+    t.string   "title",       :null => false
+    t.string   "description", :null => false
+    t.float    "cost",        :null => false
+    t.integer  "quantity",    :null => false
+    t.string   "img",         :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "registry_reservations", :force => true do |t|
+    t.integer "registry_item_id", :null => false
+    t.integer "user_id",          :null => false
   end
 
   create_table "user_codes", :force => true do |t|
