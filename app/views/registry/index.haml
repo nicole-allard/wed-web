@@ -1,0 +1,29 @@
+.module
+  %h1 Honeypot
+  .content
+    .honeypot
+      .info
+        %p
+          Something about not requiring presents, but if you want, take a look at the list below, choose the things you wish to purchase for us, bring cheque or cash to the wedding.
+  
+      = form_tag({:action=>"update_menu_for_user", :method=>"post"}) do
+        %input{ :type => 'hidden', :name => 'item-counts' }
+        - RegistryItem.all.each do |item|
+          %fieldset{ :class => (item.num_available_to_user(@active_user) > 0 ? 'available' : 'unavailable'), 'data-item-id' => item.id }
+            = image_tag "registry/#{item.img}"
+            %select.count{ 'data-num-available' => item.num_available_to_user(@active_user) }
+              - (0..item.num_available_to_user(@active_user)).each do |option|
+                %option{ :value => option, :selected => (option == item.num_reserved_by_user(@active_user) ? 'selected' : nil) }
+                  = option
+            .quantity
+              %span.num_available
+                = item.num_available
+              of
+              %span
+                = item.quantity
+              available
+            .title
+              = item.title
+            .description
+              = item.description
+        
