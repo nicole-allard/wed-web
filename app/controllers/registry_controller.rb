@@ -8,7 +8,7 @@ class RegistryController < ApplicationController
     end
     
     item_counts = Hash[params['item-counts'].split(',').map do |pair|
-      pair.split('=')
+      pair.split('=').map(&:to_i)
     end]
 
     # item_counts contains all the items this user wishes to reserve, including
@@ -22,7 +22,7 @@ class RegistryController < ApplicationController
     
     # Now create or delete reservations based on what was selected
     item_counts.each do |item_id, count|
-      existing_item_reservations = existing.keep_if{|r| r.registry_item_id == item}
+      existing_item_reservations = existing.select{|r| r.registry_item_id == item_id}
       while (existing_item_reservations.size > count) do
         existing_item_reservations.pop.delete
       end
@@ -30,5 +30,8 @@ class RegistryController < ApplicationController
         existing_item_reservations << RegistryReservation.create!(:user_id => @active_user.id, :registry_item_id => item_id)
       end
     end
+    
+    set_success_message "Successfully reserved your choices. Thank you!"
+    return render "index"
   end
 end
