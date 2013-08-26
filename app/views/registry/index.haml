@@ -8,22 +8,29 @@
   
       = form_tag({:action=>"update_menu_for_user", :method=>"post"}) do
         %input{ :type => 'hidden', :name => 'item-counts' }
-        - RegistryItem.all.each do |item|
-          %fieldset{ :class => (item.num_available_to_user(@active_user) > 0 ? 'available' : 'unavailable'), 'data-item-id' => item.id }
-            = image_tag "registry/#{item.img}"
-            %select.count{ 'data-num-available' => item.num_available_to_user(@active_user) }
-              - (0..item.num_available_to_user(@active_user)).each do |option|
-                %option{ :value => option, :selected => (option == item.num_reserved_by_user(@active_user) ? 'selected' : nil) }
-                  = option
-            .quantity
-              %span.num_available
-                = item.num_available
-              of
-              %span
-                = item.quantity
-              available
-            .title
-              = item.title
-            .description
-              = item.description
+        %ul
+          - RegistryItem.all.each do |item|
+            %li{ :class => (item.num_available_to_user(@active_user) > 0 ? 'available clearfix' : 'unavailable clearfix'), 'data-item-id' => item.id }
+              .alpha
+                = image_tag "registry/#{item.img}"
+              .beta
+                %h2
+                  = item.title
+                %p.description
+                  = item.description
+                .selection
+                  %select.count{ 'data-num-available' => item.num_available_to_user(@active_user) }
+                    - (0..item.num_available_to_user(@active_user)).each do |option|
+                      %option{ :value => option, :selected => (option == item.num_reserved_by_user(@active_user) ? 'selected' : nil) }
+                        = option
+                  .quantity
+                    %span.num_available
+                      = item.num_available
+                    of
+                    %span
+                      = item.quantity
+                    available
+        %button{:type=>'submit'}
+          Save Selection
         
+        %script{:src=>'/javascripts/registry.js'}

@@ -1,0 +1,41 @@
+.honeypot form {
+	width:auto;
+	padding:0px;
+}
+
+.module .content .honeypot .alpha,
+.module .content .honeypot .alpha img {
+	width: 150px;
+}
+
+.module .content .honeypot .beta {
+	width: 564px;
+}
+
+.honeypot .description {
+	float:left;
+}
+
+.honeypot .selection {
+	margin-top: 10px;
+	float:right;
+}
+
+.honeypot button {
+	float:right;
+}
+
+.honeypot select {
+	padding: 4px 2px;
+	height: 30px;
+	line-height:30px;
+	display: block;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+.honeypot .quantity {
+	color: #999;
+	font-size: 12px;
+	margin-top: 10px;
+}
