@@ -4,7 +4,11 @@
     .honeypot
       .info
         %p
-          Something about not requiring presents, but if you want, take a look at the list below, choose the things you wish to purchase for us, bring cheque or cash to the wedding.
+          You're already giving us the best gift you can by being with us on our wedding day. Further gifts are entirely optional.
+        %p
+          We have everything that we need for ourselves and our home. If you'd like to give us something, we'd love for you to contribute to our honeymoon fund. Below is a list of some things that we have planned for our honeymoon. If you see something that you'd like to gift to us, please mark it as reserved so that others will see that it has already been chosen. We'd appreciate it if you'd bring cash or cheque, along with a note indicating which gift item you chose, to the wedding.
+        %p
+          If you don't see anything on this list that you like, gift cards, monetary presents, or a card with a nice personal message would also be appreciated.
   
       = form_tag({:action=>"update_menu_for_user", :method=>"post"}) do
         %input{ :type => 'hidden', :name => 'item-counts' }
@@ -13,23 +17,27 @@
             %li{ :class => (item.num_available_to_user(@active_user) > 0 ? 'available clearfix' : 'unavailable clearfix'), 'data-item-id' => item.id }
               .alpha
                 = image_tag "registry/#{item.img}"
-              .beta
-                %h2
-                  = item.title
-                %p.description
-                  = item.description
-                .selection
-                  %select.count{ 'data-num-available' => item.num_available_to_user(@active_user) }
-                    - (0..item.num_available_to_user(@active_user)).each do |option|
-                      %option{ :value => option, :selected => (option == item.num_reserved_by_user(@active_user) ? 'selected' : nil) }
-                        = option
-                  .quantity
-                    %span.num_available
-                      = item.num_available
-                    of
-                    %span
-                      = item.quantity
-                    available
+              .beta.clearfix
+                %div
+                  %h3
+                    = item.title
+                  %p.description
+                    = item.description
+                %div
+                  .selection
+                    %span.price
+                      = item.cost != Float::INFINITY ? number_to_currency(item.cost) : 'Any'
+                    %select.count{ 'data-num-available' => item.num_available_to_user(@active_user) }
+                      - (0..item.num_available_to_user(@active_user)).each do |option|
+                        %option{ :value => option, :selected => (option == item.num_reserved_by_user(@active_user) ? 'selected' : nil) }
+                          = option
+                    .quantity
+                      %span.num_available
+                        = item.num_available
+                      of
+                      %span
+                        = item.quantity
+                      available
         %button{:type=>'submit'}
           Save Selection
         
