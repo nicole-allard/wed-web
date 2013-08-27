@@ -2,8 +2,8 @@
 
 registry_items = [
   {
-    :title => "Beer",
-    :description => "A stein of beer each at Oktoberfest",
+    :title => "A round of beer at Oktoberfest",
+    :description => "2 steins of beer, or as they're called in Germany: Maße",
     :quantity => 4,
     :cost => 30,
     :img => 'beer.jpg',
@@ -31,7 +31,7 @@ registry_items = [
   },
   {
 	:title => "Dinner in Ljubljana",
-	:description => "Dinner by the river in Ljubljana, Solvenia",
+	:description => "Dinner by the river in Ljubljana, Slovenia",
 	:quantity => 1,
 	:cost => 80,
 	:img => "ljubljana.jpg",
@@ -40,7 +40,7 @@ registry_items = [
 	:title => "Gambling money for casino in Opatija, Croatia",
 	:description => "Write us a note with what you'd like us to bet on",
 	:quantity => 5,
-	:cost => Float::INFINITY,
+	:cost => 0,
 	:img => "casino.jpg",
   },
   {
@@ -59,7 +59,7 @@ registry_items = [
   },
   {
 	:title => "Boat excursion in KRKA national park",
-	:description => "Boat tour of the clear natural pool, waterfalls, cascades, and the 14th century monestary",
+	:description => "Boat tour of the clear natural pool, waterfalls, cascades, and the 14th century monastery",
 	:quantity => 1,
 	:cost => 80,
 	:img => "krka.jpg",

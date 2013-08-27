@@ -26,7 +26,7 @@
                 %div
                   .selection
                     %span.price
-                      = item.cost != Float::INFINITY ? number_to_currency(item.cost) : 'Any'
+                      = item.cost != 0 ? number_to_currency(item.cost) : 'Any'
                     %select.count{ 'data-num-available' => item.num_available_to_user(@active_user) }
                       - (0..item.num_available_to_user(@active_user)).each do |option|
                         %option{ :value => option, :selected => (option == item.num_reserved_by_user(@active_user) ? 'selected' : nil) }
