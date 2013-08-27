@@ -15,7 +15,9 @@ class RegistryController < ApplicationController
     # previous existing reservations
     
     # First delete any existing reservations that are no longer selected
-    existing = @active_user.registry_reservations # gets resos for both user and user's guest
+    user_ids = [@active_user.id]
+    user_ids << @active_user.guest.id if @active_user.guest
+    existing = RegistryReservation.find_all_by_user_id(user_ids)
     existing.each do |reservation|
       reservation.delete if (!item_counts.has_key?(reservation.registry_item_id))
     end

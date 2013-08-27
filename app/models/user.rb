@@ -28,10 +28,6 @@ class User < ActiveRecord::Base
     end
   end
   
-  def registry_reservations
-    (RegistryReservation.find_all_by_user_id(self.id) + (guest ? guest.registry_reservations : [])).uniq
-  end
-  
   def guest
     guest_user || inverse_guest_user
   end
