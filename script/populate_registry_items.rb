@@ -20,7 +20,7 @@ registry_items = [
   	:description => "Sexy sports car for the drive from Munich, Germany to Hallstatt, Austria",
   	:quantity => 1,
   	:cost => 185,
-  	:img => "covertible.jpg",
+  	:img => "convertible.jpg",
   },
   {
 	:title => "Dinner in Hallstatt",
