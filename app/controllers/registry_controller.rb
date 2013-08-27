@@ -7,6 +7,8 @@ class RegistryController < ApplicationController
       return render "index"
     end
     
+    puts "\n\n#{params.inspect}\n\n"
+    
     item_counts = Hash[params['item-counts'].split(',').map do |pair|
       pair.split('=').map(&:to_i)
     end]
