@@ -21,7 +21,7 @@ registry_items = [
   	:quantity => 1,
   	:cost => 185,
   	:img => "covertible.jpg",
-  }
+  },
   {
 	:title => "Dinner in Hallstatt",
 	:description => "Romantic dinner on the lake in beautiful Hallstatt, Austria",
