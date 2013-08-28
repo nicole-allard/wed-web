@@ -14,35 +14,35 @@
           %a{ :target => '_blank', :href => 'https://maps.google.com/maps?saddr=Munich,+Germany&daddr=Hallstatt,+Austria+to:Munich,+Germany+to:Ljubljana,+Slovenia+to:Rijeka,+Croatia+to:Vodice,+Croatia+to:Split,+Croatia+to:Hvar,+Croatia+to:Ancona,+Province+of+Ancona,+Italy+to:Bologna,+Province+of+Bologna,+Italy+to:Parma,+Province+of+Parma,+Italy+to:Venice,+Province+of+Venice,+Italy+to:Ljubljana,+Slovenia+to:Frankfurt,+Germany&hl=en&ll=46.195042,14.72168&spn=11.500005,28.54248&sll=46.634351,12.084961&sspn=11.408346,28.54248&geocode=FRCC3gIdsqWwACnZX4yj-XWeRzF9mLF9SrgMAQ%3BFfq91QIdbkXQACljRkFubzZxRzGtwSZqWWXBFg%3BFRCC3gIdsqWwACnZX4yj-XWeRzF9mLF9SrgMAQ%3BFQPEvgIdJmDdACnRhpiW9TFlRzEg7D-CHPgABA%3BFdeiswIdwF7cACktvqoXJaFkRzFwtss9OG88Nw%3BFdi9mwIdyMPwACnRFIxP8Nc0EzFUqsVHHNpWQA%3BFaThlwIdgtv6ACkX9bxr_F01EzGYn7Qx9o95oQ%3BFQx7kgIdphn-ACnLCP-St4lKEzHVLeHqjwYp8g%3BFYyCmAIdrG3KACnFs0juiZctEzEAgOTjkCwIAw%3BFQDhpgIdpBCtACmVmy6-m9R_RzFBOWB2eDJt3A%3BFc2dqwIdYJedACkvw9RU4WqARzGaNpBcczehAw%3BFU9ftQIde-u7ACmJPdbx2rF-RzEvEJK98Majew%3BFQPEvgIdJmDdACnRhpiW9TFlRzEg7D-CHPgABA%3BFcqh_AIdj3qEACnFlnBHbwm9RzEAxrApUEMiBA&oq=venice&mra=ls&t=m&z=6' }
             here
   
-      = form_tag({:action=>"update_menu_for_user", :method=>"post"}) do
+      = form_tag({ :action => 'update_reservations', :method=>"post" }) do
         %input{ :type => 'hidden', :name => 'item-counts' }
-        %ul
-          - RegistryItem.all.each do |item|
-            %li{ :class => (item.num_available_to_user(@active_user) > 0 ? 'available clearfix' : 'unavailable clearfix'), 'data-item-id' => item.id }
-              .alpha
-                = image_tag "registry/#{item.img}"
-              .beta.clearfix
-                %div
-                  %h3
-                    = item.title
-                  %p.description
-                    = item.description
-                %div
-                  .selection
-                    %span.price
-                      = item.cost != 0 ? number_to_currency(item.cost) : 'Any'
-                    %select.count{ 'data-num-available' => item.num_available_to_user(@active_user), 'disabled' => item.num_available_to_user(@active_user) > 0 ? nil : 'disabled' }
-                      - (0..item.num_available_to_user(@active_user)).each do |option|
-                        %option{ :value => option, :selected => (option == item.num_reserved_by_user(@active_user) ? 'selected' : nil) }
-                          = option
-                    .quantity
-                      %span.num_available
-                        = item.num_available
-                      of
-                      %span
-                        = item.quantity
-                      available
-        %button{:type=>'submit'}
-          Save Selection
+      %ul
+        - RegistryItem.all.each do |item|
+          %li{ :class => (item.num_available_to_user(@active_user) > 0 ? 'available clearfix' : 'unavailable clearfix'), 'data-item-id' => item.id }
+            .alpha
+              = image_tag "registry/#{item.img}"
+            .beta.clearfix
+              %div
+                %h3
+                  = item.title
+                %p.description
+                  = item.description
+              %div
+                .selection
+                  %span.price
+                    = item.cost != 0 ? number_to_currency(item.cost) : 'Any'
+                  %select.count{ 'data-num-available' => item.num_available_to_user(@active_user), 'disabled' => item.num_available_to_user(@active_user) > 0 ? nil : 'disabled' }
+                    - (0..item.num_available_to_user(@active_user)).each do |option|
+                      %option{ :value => option, :selected => (option == item.num_reserved_by_user(@active_user) ? 'selected' : nil) }
+                        = option
+                  .quantity
+                    %span.num_available
+                      = item.num_available
+                    of
+                    %span
+                      = item.quantity
+                    available
+      %button.submit
+        Save Selection
         
-        %script{:src=>'/javascripts/registry.js'}
+      %script{:src=>'/javascripts/registry.js'}

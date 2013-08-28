@@ -1,19 +1,12 @@
 
 $(function() {
-	$('form').submit(function(e) {
-		e.preventDefault();
+	$('button.submit').click(function(e) {
 		var items = $('li[data-item-id]').map(function() {
-			return $(this).data('item-id') + escape('=')  + $(this).find('select').val();
+			return $(this).data('item-id') + '=' + $(this).find('select').val();
 		});
 		
-		// Somewhat hacky way of making a real form submit
-		$('<form>')
-			.attr({
-				'action': '/registry/update_reservations?item-counts=' + items.toArray().join('%2C'),
-				'method': 'post'
-			})
-			.appendTo('body')
-			.submit();
+		$('form input[name=item-counts]').val(items.toArray().join(','));
+		$('form').submit();
 	});
 });
 
