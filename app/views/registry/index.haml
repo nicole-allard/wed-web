@@ -31,7 +31,7 @@
                   .selection
                     %span.price
                       = item.cost != 0 ? number_to_currency(item.cost) : 'Any'
-                    %select.count{ 'data-num-available' => item.num_available_to_user(@active_user) }
+                    %select.count{ 'data-num-available' => item.num_available_to_user(@active_user), 'disabled' => item.num_available_to_user(@active_user) > 0 ? nil : 'disabled' }
                       - (0..item.num_available_to_user(@active_user)).each do |option|
                         %option{ :value => option, :selected => (option == item.num_reserved_by_user(@active_user) ? 'selected' : nil) }
                           = option

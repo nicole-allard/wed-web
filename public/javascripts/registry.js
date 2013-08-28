@@ -9,7 +9,7 @@ $(function() {
 		// Somewhat hacky way of making a real form submit
 		$('<form>')
 			.attr({
-				'action': '/registry/update_reservations?item-counts=' + items.toArray().join('&'),
+				'action': '/registry/update_reservations?item-counts=' + items.toArray().join('%2C'),
 				'method': 'post'
 			})
 			.appendTo('body')
