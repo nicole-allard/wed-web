@@ -36,7 +36,7 @@
                   = item.description
         
 
-        - if @active_user.guest
+        - if @active_user.guest && @active_user.guest.status == User.attending_status[:attending]
           %h2.user
             = @active_user.guest.name
 

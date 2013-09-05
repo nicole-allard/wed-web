@@ -11,7 +11,7 @@ class MenuController < ApplicationController
     user_errors = user_menu.errors
     
     guest_errors = {}
-    if @active_user.guest
+    if @active_user.guest && params["guest_entree"]
       guest_menu = update_menu_for_user(@active_user.guest, params["guest_entree"].to_i, params["guest_dessert"].to_i)
       guest_errors = guest_menu.errors
     end
